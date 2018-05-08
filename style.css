@@ -1,4 +1,20 @@
-/* Some default styles to make each box visible */
+/*
+ Some default styles to make each box visible */
+
+.container {
+	display: flex; 
+	flex-direction: row; /* not required because its the default */
+	flex-wrap: wrap;  /* Without this, flex will force all items to be placed in
+						the same row, even though the width of each box below is
+						specified as 300px */
+
+	/* This border is present just so we can see the borders of the container */
+	border: 10px solid goldenrod;
+
+	/* Set the height of .container to be a minimum of 100% of the height of the
+	   viewport, minimum meaning it could grow, but won't shrink */
+	min-height: 100vh;
+}
 .box {
 	/* A few properties for the font
 	   color is a foreground color for 
@@ -15,8 +31,16 @@
 	   element,
 	   padding,
 	   border,
-	   margin ... Adds white space */
+	   margin ... Adds white space 
 	padding:10px;
+	margin: 10px; */
+
+	/* width: 300px; */
+	width: 33.333333%;
+
+	/* or do this since Margin isn't included as part of the box model */
+	/* margin: 10px;
+	width: calc(33.33333% - 20x); */
 }
 	
 	/* Colors for each box */
@@ -31,37 +55,3 @@
 	.box9 { background:#2ecc71;}
 	.box10 { background:#16a085;}
 
-.container {
-	/* 
-	 * Declare a flex container
-	 * There are two ways to create a flex container 
-	 * 
-	 * A flex container always causes children to be flex items
-	 * 
-	 * By default, flex-direction is row.
-	 * 
-	 * The height of the container will match the tallest flex-item, and all others will 
-	 * stretch to match it, causing a uniform height of the container.
-	 */
-	display: flex;  /* Container spans width of container */
-	/* display: inline-flex; Container only takes up as much width as flex-items require */
-	flex-direction: row; /* This the default, meaning all flex items will span horizontally
-							across the screen, but not necessarily will the items consume 
-							all of the horizontal space, but the container will (see 
-							inline-row to compress it) and vertically to match the height 
-							of the tallest element. The main axis will be from right to left,
-							and the cross axis will be top to bottom. */
-	flex-direction: column; /* All of the children will be stacked vertically, meaning the main
-							   axis will be top to bottom, and the cross axis will be from right
-							   to left. Also note that horizontally, each items matches the width
-							   of its parent. */
-	flex-direction: row-reverse; /* Switch the direction of the main axis to be left to right */
-	flex-direction: column-reverse;
-
-	/* This border is present just so we can see the borders of the container */
-	border: 10px solid goldenrod;
-
-	/* Set the height of .container to be a minimum of 100% of the height of the
-	   viewport, minimum meaning it could grow, but won't shrink */
-	min-height: 100vh;
-}
